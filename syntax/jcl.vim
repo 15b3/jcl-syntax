@@ -28,11 +28,11 @@ syn match jclComment "^\s*\zs#.*$"
 
 syn match jclPrePro "^\s*\zs%.*$"
 
-syn match jclOperator "\v\=\="
-syn match jclOperator "\v\!\="
-syn match jclOperator "\v\!\="
-syn match jclOperator "\vor"
-syn match jclOperator "\vand"
+syn keyword jclOperator \=\=
+syn keyword jclOperator \!\=
+syn keyword jclOperator \!\=
+syn keyword jclOperator or
+syn keyword jclOperator and
 
 " 予約変数名
 syn match jclReservedVar "\${YY}"
@@ -46,6 +46,7 @@ syn match jclReservedVar "\${SEND}"
 syn match jclReservedVar "\${DELETE}"
 
 syn match jclPreVar "<%=.\{-}%>"
+
 
 hi def link jclKeyword Statement
 hi def link jclKeyword2 Function
