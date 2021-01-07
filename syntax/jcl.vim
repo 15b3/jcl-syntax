@@ -1,10 +1,10 @@
-" JCL syntax file
+" Job Control Language syntax file
 " Language:     JCL
 " Maintainer:   15b3
-" Last Change:  2020-11-21
-" Filenames: *.jcl
-" License: MIT License
-" URL: https://github.com/15b3/jcl-syntax
+" Last Change:  2021-01-07
+" Filenames:    *.jcl
+" License:      MIT License
+" URL:          https://github.com/15b3/jcl-syntax
 
 if exists("b:current_syntax")
   finish
@@ -28,11 +28,10 @@ syn match jclComment "^\s*\zs#.*$"
 
 syn match jclPrePro "^\s*\zs%.*$"
 
-syn keyword jclOperator \=\=
-syn keyword jclOperator \!\=
-syn keyword jclOperator \!\=
-syn keyword jclOperator or
-syn keyword jclOperator and
+syn match jclOperator '\V==\|!=\|>=\|<=\|>\|<'
+syn keyword jclOperator or and
+
+syn region jclString start="\v\"" end="\v\""
 
 " 予約変数名
 syn match jclReservedVar "\${YY}"
@@ -50,6 +49,8 @@ syn match jclPreVar "<%=.\{-}%>"
 
 hi def link jclKeyword Statement
 hi def link jclKeyword2 Function
+
+hi def link jclString String
 
 hi def link jclPrePro PreCondit
 hi def link jclOperator Operator
